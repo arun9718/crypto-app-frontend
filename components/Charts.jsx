@@ -11,13 +11,13 @@ const data = {
 };
 
 
-const Charts = () => {
+const Charts = ({width,height}) => {
     return (
         <View>
             <LineChart
                 data={data}
-                width={300}
-                height={200}
+                width={width}
+                height={height}
                 yAxisLabel={'$'}
                 chartConfig={{
                     backgroundColor: '#e26a00',
