@@ -31,7 +31,7 @@ import { DataTable } from 'react-native-paper';
 
 const CoinList = () => {
     const [page, setPage] = React.useState(0);
-    const [numberOfItemsPerPageList] = React.useState([2, 3, 4]);
+    const [numberOfItemsPerPageList] = React.useState([10]);
     const [itemsPerPage, onItemsPerPageChange] = React.useState(
       numberOfItemsPerPageList[0]
     );
@@ -40,27 +40,51 @@ const CoinList = () => {
      {
        key: 1,
        name: 'BTC',
-       calories: 356,
-       fat: 16,
+       price: 356,
+       cap: 16,
      },
      {
        key: 2,
        name: 'ETH',
-       calories: 262,
-       fat: 16,
+       price: 262,
+       cap: 16,
      },
      {
        key: 3,
        name: 'USDT',
-       calories: 159,
-       fat: 6,
+       price: 159,
+       cap: 6,
      },
      {
        key: 4,
        name: 'XRP',
-       calories: 305,
-       fat: 3.7,
+       price: 305,
+       cap: 3.7,
      },
+     {
+        key: 1,
+        name: 'BTC',
+        price: 356,
+        cap: 16,
+      },
+      {
+        key: 2,
+        name: 'ETH',
+        price: 262,
+        cap: 16,
+      },
+      {
+        key: 3,
+        name: 'USDT',
+        price: 159,
+        cap: 6,
+      },
+      {
+        key: 4,
+        name: 'XRP',
+        price: 305,
+        cap: 3.7,
+      },
     ]);
   
     const from = page * itemsPerPage;
@@ -74,9 +98,9 @@ const CoinList = () => {
       <DataTable>
         <DataTable.Header>
           <DataTable.Title>Name</DataTable.Title>
-          <DataTable.Title numeric>Calories</DataTable.Title>
-          <DataTable.Title numeric>Fat</DataTable.Title>
-          <DataTable.Title numeric>Fat</DataTable.Title>
+          <DataTable.Title numeric>MarketCap</DataTable.Title>
+          <DataTable.Title numeric>Price</DataTable.Title>
+          <DataTable.Title numeric>24h%</DataTable.Title>
         </DataTable.Header>
   
         {items.slice(from, to).map((item) => (
@@ -87,7 +111,7 @@ const CoinList = () => {
                     {/* <Card idx={1} name='BTC' pri/ce='100' cap='100B'/> */}
                 </View>
             </DataTable.Cell>
-            <Card idx={1} name='BTC' price='100' cap='100B'/>
+            <Card idx={item.key} name={item.name} price='100' cap='100B'/>
             {/* <DataTable.Cell numeric>{item.calories}</DataTable.Cell>
             <DataTable.Cell numeric>{item.fat}</DataTable.Cell> */}
           </DataTable.Row>
